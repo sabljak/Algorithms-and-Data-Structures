@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Linked List.cpp">
+    <ClCompile Include="Doubly Linked List.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
