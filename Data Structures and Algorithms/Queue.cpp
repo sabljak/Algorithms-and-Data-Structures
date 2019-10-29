@@ -4,26 +4,23 @@ using namespace std;
 template<class T>
 struct Node {
 	T data;
-	Node* next=nullptr;
-	Node(const T& data) :data(data){}
+	Node* next = nullptr;
+	Node(const T& data) :data(data) {}
 };
 template <class T>
 class Queue {
 private:
-	int size=0;
-	Node<T>* head=nullptr;
-	Node<T>* tail=nullptr;
+	int size = 0;
+	Node<T>* head = nullptr;
+	Node<T>* tail = nullptr;
 public:
-	~Queue()
-	{
-		Node<T>* traversal = head->next;
+	~Queue() {
+		Node<T>* traversal = head;
 		while (traversal != nullptr) {
-			delete head;
-			head = traversal;
-			traversal = traversal->next;
+			Node<T>* traversal2 = traversal->next;
+			delete traversal;
+			traversal = traversal2;
 		}
-		delete head;
-		head = nullptr;
 		size = 0;
 	}
 	void enqueue(const T& data) {
