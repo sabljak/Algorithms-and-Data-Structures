@@ -55,7 +55,13 @@ public:
 		cout << "\n";
 	}
 	void bubbleDown(int index) {
-		if (!hasLeftChild(index) || !hasRightChild(index)) {
+		if (!hasLeftChild(index) && !hasRightChild(index)) {
+			return;
+		}
+		if (hasLeftChild(index) && !hasRightChild(index)) {
+			if (items[index_leftChild(index)].priority > items[index].priority) {
+				swap(items[index], items[index_leftChild(index)]);
+			}
 			return;
 		}
 		if (getLeftChildPriority(index) > getRightChildPriority(index)) {
