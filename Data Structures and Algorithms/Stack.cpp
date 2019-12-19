@@ -18,14 +18,12 @@ public:
 	Stack():top(nullptr){}
 	~Stack()
 	{
-		Node<T>* ptr = top->previous;
-		while (ptr != nullptr) {
-			delete top;
-			top = ptr;
-			ptr = ptr->previous;
+		Node<T>* traversal = top;
+		while (traversal != nullptr) {
+			Node<T>* traversal2 = traversal->previous;
+			delete traversal;
+			traversal = traversal2;
 		}
-		delete top;
-		top = nullptr;
 	}
 	void push(const T& data) {
 		if (top == nullptr) {
